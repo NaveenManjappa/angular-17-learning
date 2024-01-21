@@ -7,13 +7,14 @@ import { Component } from '@angular/core';
 })
 export class ProductListComponent {
 
-
+name= 'John Doe'
 product = {
   name: 'iPhone 15',
   price: 789,
   color: 'Mate Black',
   discount:8.5,
-  inStock:0
+  inStock:10,
+  pImage:'/assets/images/iPhone.png'
 }
 
 

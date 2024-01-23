@@ -2,6 +2,8 @@
     <input class="ekart-search-product-input" [(ngModel)]="searchText" >
     <button class="btn btn-search">Search</button>
 </div>
-<div class="ekart-search-result-for"><p><strong>Search result for:</strong> {{searchText}}</p></div>
+<div class="ekart-search-result-for">
+    <p *ngIf="searchText!=''" ><strong>Search result for:</strong> {{searchText}}</p>
+</div>
 <!-- <div class="ekart-product-container-header"><h2>SHOES</h2></div>
 <div class="ekart--product--container"></div> -->

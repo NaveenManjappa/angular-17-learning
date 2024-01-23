@@ -39,4 +39,9 @@ export class ContainerComponent {
 
 names: string[] = ['Mark','Jake','Blake','Ted']
 
+searchText:string='';
+onSearchTextChanged(value){
+  this.searchText=value;
+}
+
 }

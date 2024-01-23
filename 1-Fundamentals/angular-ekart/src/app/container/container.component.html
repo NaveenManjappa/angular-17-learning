@@ -19,10 +19,10 @@ bind- can also be used
  This is attribute binding 
 <br>
 <p>{{'Name=  ' + name}}</p> -->
-<search></search>
+<search (searchTextChanged)="onSearchTextChanged($event)"></search>
 <!-- <div *ngFor="let item of  names">
     <p>Current element of array is: {{item}}</p>
 </div> -->
 
-<product-list></product-list>
+<product-list [searchText]="searchText"></product-list>
 </div>

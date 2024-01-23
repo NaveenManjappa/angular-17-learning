@@ -16,7 +16,12 @@ updateSearchText(event:any){
 }
 
 onSearchTextChanged(){
-this.searchTextChanged.emit(this.searchText);
+// this.searchTextChanged.emit(this.searchText);
+}
+
+searchButtonClicked(inputElement:HTMLInputElement){
+  this.searchText=inputElement.value;
+  this.searchTextChanged.emit(this.searchText);
 }
 
 }

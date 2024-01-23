@@ -1,9 +1,13 @@
 <div class="ekart--search--product">
     <input class="ekart-search-product-input" [(ngModel)]="searchText" >
-    <button class="btn btn-search">Search</button>
+    <button [disabled]="!searchText"
+    [ngClass]="{'btn':true,'btn-search':searchText,'btn-search-disabled':!searchText}"
+    >Search</button>
 </div>
 <div class="ekart-search-result-for">
     <p *ngIf="searchText!=''" ><strong>Search result for:</strong> {{searchText}}</p>
 </div>
 <!-- <div class="ekart-product-container-header"><h2>SHOES</h2></div>
 <div class="ekart--product--container"></div> -->
+
+<!-- false, '',null,undefined,0 - falsy values -->

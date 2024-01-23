@@ -1,3 +1,8 @@
 <div class="ekart--products--container">
+    <app-filter 
+    [all]="totalProductCount" 
+    [inStock]="totalInStockProducts"
+    [outOfStock]="totalOutOfStockProducts"
+    ></app-filter>
     <app-product *ngFor="let prod of products" [product]="prod"></app-product>
 </div>

@@ -10,7 +10,7 @@ searchText: string='';
 
 @Output()
 searchTextChanged:EventEmitter<string>=new EventEmitter<string>();
-
+//1. read
 @ViewChild('searchTextInput') searchInputEl:ElementRef;
 
 updateSearchText(event:any){

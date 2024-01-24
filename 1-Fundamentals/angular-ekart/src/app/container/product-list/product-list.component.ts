@@ -545,7 +545,7 @@ selectedProduct: Product;
   searchText:string='';
 
   onFilterChanged(value:string){
-    console.log(value);
+    
     this.selectedFilterValue=value;
   }
 }

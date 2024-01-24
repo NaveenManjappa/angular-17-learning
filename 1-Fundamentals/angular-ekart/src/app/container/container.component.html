@@ -25,5 +25,5 @@ bind- can also be used
 </div> -->
 
 <product-list [searchText]="searchText" #productListComponent></product-list>
-<product-detail *ngIf="productListComponent.selectedProduct"></product-detail>
+<product-detail *ngIf="productListComponent.selectedProduct" [productListComp]="productListComp"></product-detail>
 </div>

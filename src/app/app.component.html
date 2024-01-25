@@ -1,7 +1,9 @@
-<h2>Learn NG template</h2>
-<ng-template #templateFiled>
-  <h3>This is a template</h3>
-  <p>This is an example paragraph to understnad ng template</p>
+<ng-container *ngIf="toggle;else toggleOff">
+<p>Toggle is ON</p>
+</ng-container>
+
+<ng-template #toggleOff>
+  <p>Toggle is OFF</p>
 </ng-template>
 
-<div *ngTemplateOutlet="templateFiled"></div>
+<button (click)="switch()">Switch</button>

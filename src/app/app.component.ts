@@ -11,6 +11,11 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'angular-ng-template';
+  
+  toggle:Boolean=true;
 
+  switch(){
+    this.toggle=!this.toggle;
+  }
   
 }

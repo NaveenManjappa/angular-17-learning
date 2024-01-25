@@ -10,17 +10,7 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'angular-view-children';
+  title = 'angular-ng-template';
 
-  @ViewChildren('inputElementRef') inputElements :QueryList<ElementRef>
-  fullName:string ='';
   
-  show(){
-    let name='';
-    this.inputElements.forEach(el =>{
-      name+=el.nativeElement.value+' ';
-    });
-      this.fullName=name.trim();
-
-  }
 }

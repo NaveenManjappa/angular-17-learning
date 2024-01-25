@@ -16,7 +16,7 @@ bind- can also be used
 
 
  <input [value]="name" [attr.aria-hidden]=""> 
- This is attribute binding 
+ This is attribute binding
 <br>
 <p>{{'Name=  ' + name}}</p> -->
 <search (searchTextChanged)="onSearchTextChanged($event)"></search>
@@ -26,4 +26,40 @@ bind- can also be used
 
 <product-list [searchText]="searchText" #productListComponent></product-list>
 <product-detail *ngIf="productListComponent.selectedProduct" [productListComp]="productListComp"></product-detail>
+<div class="ekart-featured-products">
+    <div class="ekart-featured-product-heading">
+        <h1>Latest Arrivals in Popular brands</h1>
+    </div>
+
+    
+        <featured-brands>
+            <h3 class="title">New Arrivals in Nike</h3>
+            <button class="call-to-action">Show arrivals in Nike</button>
+        </featured-brands>
+        <featured-brands>
+            <h3 class="title">New Arrivals in Adidas</h3>
+            <button class="call-to-action">Show arrivals in Adidas</button>
+        </featured-brands>
+        <featured-brands>
+            <h3 class="title">New Arrivals in Puma</h3>
+            <button class="call-to-action">Show arrivals in Puma</button>
+        </featured-brands>
+ 
+
+    <!-- <div class="ekart-featured-product-item">
+        <h3 class="title">New Arrivals in Adidas</h3>
+        <p class="description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, tempore maiores. Commodi exercitationem nihil tenetur odit mollitia aspernatur vitae, officia, nostrum corporis nobis officiis minima, ab fuga reiciendis. Ratione, ipsam.
+        </p>
+        <button class="call-to-action">Learn More</button>
+    </div>
+    <div class="ekart-featured-product-item">
+        <h3 class="title">New Arrivals in Puma</h3>
+        <p class="description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, tempore maiores. Commodi exercitationem nihil tenetur odit mollitia aspernatur vitae, officia, nostrum corporis nobis officiis minima, ab fuga reiciendis. Ratione, ipsam.
+        </p>
+        <button class="call-to-action">Learn More</button>
+    </div> -->
+
+</div>
 </div>

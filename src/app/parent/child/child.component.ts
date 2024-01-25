@@ -1,4 +1,5 @@
-import { Component, ContentChild, ElementRef } from '@angular/core';
+import { Component, ContentChild, ContentChildren, ElementRef, QueryList } from '@angular/core';
+import { TestComponent } from '../../test/test.component';
 
 @Component({
   selector: 'app-child',
@@ -8,9 +9,18 @@ import { Component, ContentChild, ElementRef } from '@angular/core';
   styleUrl: './child.component.css'
 })
 export class ChildComponent {
-@ContentChild('para') paragraphEl:ElementRef;
+
+@ContentChildren('para') paraElements:QueryList<ElementRef>;
+
+@ContentChildren(TestComponent) testComponents:QueryList<TestComponent>;
 
 StylePara(){
-  console.log(this.paragraphEl);
+  // this.paraElements.forEach(el =>{
+  //   console.log(el.nativeElement);
+  //  });
+
+  this.testComponents.forEach(el=>{
+    console.log(el.name);
+  });
 }
 }

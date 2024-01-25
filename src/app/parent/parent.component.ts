@@ -1,17 +1,19 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ContentChildren, ElementRef, QueryList } from '@angular/core';
 import { ChildComponent } from './child/child.component';
+import { TestComponent } from '../test/test.component';
 
 @Component({
   selector: 'app-parent',
   standalone: true,
-  imports: [ChildComponent],
+  imports: [ChildComponent,TestComponent],
   templateUrl: './parent.component.html',
   styleUrl: './parent.component.css'
 })
 export class ParentComponent {
-@ViewChild('para') paraEl:ElementRef;
+
+
 
 ShowPara(){
-  console.log(this.paraEl);
+ 
 }
 }

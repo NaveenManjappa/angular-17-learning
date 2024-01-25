@@ -3,9 +3,21 @@
     <app-child>
         <h3>Parent component</h3>
         <p #para>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, eveniet eius. Dolor laborum minima provident, expedita officia asperiores, vel impedit cum quae dicta tempore ipsam ipsa alias magnam officiis fugiat!
+            Lorem1 ipsum dolor sit amet consectetur adipisicing elit. Nostrum, eveniet eius. Dolor laborum minima provident, expedita officia asperiores, vel impedit cum quae dicta tempore ipsam ipsa alias magnam officiis fugiat!
         </p>
+        <p #para>
+            Lorem2 ipsum dolor sit amet consectetur adipisicing elit. Nostrum, eveniet eius. Dolor laborum minima provident, expedita officia asperiores, vel impedit cum quae dicta tempore ipsam ipsa alias magnam officiis fugiat!
+        </p>
+        <p #para>
+            Lorem3 ipsum dolor sit amet consectetur adipisicing elit. Nostrum, eveniet eius. Dolor laborum minima provident, expedita officia asperiores, vel impedit cum quae dicta tempore ipsam ipsa alias magnam officiis fugiat!
+        </p>
+        
+        <app-test [name]="'John Smith'"></app-test>
+        <app-test [name]="'Sophie Turner'"></app-test>
+        <app-test [name]="'Mark Twain'"></app-test>
+        <app-test [name]="'Jane Watson'"></app-test>
+        
     </app-child>
 
-    <button (click)="ShowPara()">Show Para Parent component</button>
+    
 </div>

@@ -46,4 +46,9 @@ constructor() {
     console.log('ng AfterContentInit life cycle hook');
     console.log('paraContent:',this.paraContent);
   }
+
+  //5 ng AfterContentChecked life cycle hook
+  ngAfterContentChecked(){
+    console.log('ng AfterContentChecked life cycle hook');
+  }
 }

@@ -14,6 +14,7 @@ import { DemoComponent } from './demo/demo.component';
 export class AppComponent {
   title = 'angular-app-component';
   inputValue:string='';
+  toDestroy:Boolean=false;
 
   constructor(){
     console.log('App component constructor called');
@@ -29,6 +30,10 @@ export class AppComponent {
 
   onSubmit(inputEl:HTMLInputElement){
     this.inputValue=(inputEl.value);
+  }
+
+  DestroyComponent(){
+    this.toDestroy=!this.toDestroy;
   }
 
 }

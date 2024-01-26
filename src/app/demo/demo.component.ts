@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, DoCheck, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterContentInit, Component, ContentChild, DoCheck, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-demo',
@@ -8,10 +8,12 @@ import { Component, DoCheck, ElementRef, Input, OnChanges, OnInit, SimpleChanges
   templateUrl: './demo.component.html',
   styleUrl: './demo.component.css'
 })
-export class DemoComponent implements OnChanges,OnInit,DoCheck {
+export class DemoComponent implements OnChanges,OnInit,DoCheck,AfterContentInit {
 title:string ='Demo component';
 @Input() message: string;
 @ViewChild('temp') tempPara:ElementRef;
+
+@ContentChild('parentPara') paraContent:ElementRef;
 
 constructor() {
   console.log('Demo component constructor called');
@@ -36,5 +38,12 @@ constructor() {
   //3. On DoCheck life cycle hook
   ngDoCheck(){
     console.log('ng DoCheck life cycle hook');
+    console.log('paraContent:',this.paraContent);
+  }
+
+  //4 ng AfterContentInit life cycle hook
+  ngAfterContentInit(){
+    console.log('ng AfterContentInit life cycle hook');
+    console.log('paraContent:',this.paraContent);
   }
 }

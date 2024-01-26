@@ -19,6 +19,10 @@ export class AppComponent {
     console.log('App component constructor called');
   }
 
+  ngAfterViewInit(){
+    console.log('This is ngAfterViewInit life cycle hook of app component');
+  }
+
   onSubmit(inputEl:HTMLInputElement){
     this.inputValue=(inputEl.value);
   }

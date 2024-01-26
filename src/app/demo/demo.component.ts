@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { AfterContentInit, Component, ContentChild, DoCheck, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, ContentChild, DoCheck, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-demo',
@@ -8,7 +8,7 @@ import { AfterContentInit, Component, ContentChild, DoCheck, ElementRef, Input, 
   templateUrl: './demo.component.html',
   styleUrl: './demo.component.css'
 })
-export class DemoComponent implements OnChanges,OnInit,DoCheck,AfterContentInit {
+export class DemoComponent implements OnChanges,OnInit,DoCheck,AfterContentInit,AfterContentChecked,AfterViewInit {
 title:string ='Demo component';
 @Input() message: string;
 @ViewChild('temp') tempPara:ElementRef;
@@ -51,4 +51,11 @@ constructor() {
   ngAfterContentChecked(){
     console.log('ng AfterContentChecked life cycle hook');
   }
+
+  //6 ng AfterViewInit
+  ngAfterViewInit(){
+    console.log('ng AfterViewInit life cycle hook');
+  }
+
+  //7 ng AfterViewChecked
 }

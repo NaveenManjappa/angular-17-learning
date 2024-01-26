@@ -13,14 +13,14 @@ import { DemoComponent } from './demo/demo.component';
 })
 export class AppComponent {
   title = 'angular-app-component';
-  inputValue:string='';
+  inputValue:string[]=['Hello','hi'];
 
   constructor(){
     console.log('App component constructor called');
   }
 
   onSubmit(inputEl:HTMLInputElement){
-    this.inputValue=inputEl.value;
+    this.inputValue.push(inputEl.value);
   }
 
 }

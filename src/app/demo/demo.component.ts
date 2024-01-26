@@ -1,15 +1,17 @@
-import { Component, Input, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-demo',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './demo.component.html',
   styleUrl: './demo.component.css'
 })
-export class DemoComponent implements OnChanges {
+export class DemoComponent implements OnChanges,OnInit {
 title:string ='Demo component';
-@Input() message: string;
+@Input() message: string[];
+@ViewChild('temp') tempPara:ElementRef;
 
 constructor() {
   console.log('Demo component constructor called');
@@ -17,9 +19,19 @@ constructor() {
   console.log(this.message);
 }
 
+//1. On Changes life cycle hook
   ngOnChanges(changes:SimpleChanges){
     console.log('On Changes life cycle hook called');
     console.log(changes);
 }
+
+//2. On Init life cycle hook
+  ngOnInit(){
+    console.log('ng OnInit life cycle hook');
+    
+    //this line will throw error as the view template is not initialized completely 
+    //console.log(this.tempPara.nativeElement);
+
+  }
 
 }

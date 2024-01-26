@@ -23,6 +23,10 @@ export class AppComponent {
     console.log('This is ngAfterViewInit life cycle hook of app component');
   }
 
+  ngAfterViewChecked(){
+    console.log('This is ngAfterViewChecked life cycle hook of app component')
+  }
+
   onSubmit(inputEl:HTMLInputElement){
     this.inputValue=(inputEl.value);
   }

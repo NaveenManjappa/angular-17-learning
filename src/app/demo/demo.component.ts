@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, DoCheck, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-demo',
@@ -8,9 +8,9 @@ import { Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChi
   templateUrl: './demo.component.html',
   styleUrl: './demo.component.css'
 })
-export class DemoComponent implements OnChanges,OnInit {
+export class DemoComponent implements OnChanges,OnInit,DoCheck {
 title:string ='Demo component';
-@Input() message: string[];
+@Input() message: string;
 @ViewChild('temp') tempPara:ElementRef;
 
 constructor() {
@@ -31,7 +31,10 @@ constructor() {
     
     //this line will throw error as the view template is not initialized completely 
     //console.log(this.tempPara.nativeElement);
-
   }
 
+  //3. On DoCheck life cycle hook
+  ngDoCheck(){
+    console.log('ng DoCheck life cycle hook');
+  }
 }

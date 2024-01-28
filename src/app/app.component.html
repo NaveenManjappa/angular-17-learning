@@ -1,25 +1,34 @@
 <div class="notice-container">
   <div class="notice-header">
-    <button (click)="display=!display">+</button>
+    <button (click)="tab='info';">Info</button>
+    <button (click)="tab='service';">Service</button>
+    <button (click)="tab='privacy';">Privacy</button>
+    <button (click)="tab='user';">User agreement</button>
   </div>
 
-  <div class="notice-info">
-    <p>Read terms of services and privacy policy</p>
-  </div>
-<!-- <ng-template [ngIf]="display" [ngIfElse]="myTempVar"> -->
-  <div class="notice-body" *appIf="display">
-    <h1>Terms of services and privacy policy</h1>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti soluta earum odit perspiciatis maxime suscipit aspernatur ratione illo magni! Magnam, aspernatur? Placeat ipsam fuga, necessitatibus perferendis tempore nobis porro quod.</p>
+  <div class="notice-body" [ngSwitch]="tab">
+    <div *ngSwitchDefault>
+      <h1>Terms of services and privacy policy</h1>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat ratione, reprehenderit repellendus rerum autem excepturi, labore ex quo voluptates quidem architecto modi commodi consequuntur assumenda vero. Quibusdam minima similique quidem.</p>
+    </div>
+
+
+  <div *ngSwitchCase="'service'">
     <h2>Terms of services</h2>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis hic error rem iure quidem quasi doloribus a, qui commodi animi aliquid ipsa necessitatibus saepe vel corrupti. Rem delectus consequuntur harum.</p>
-    <h2>Privacy Policy</h2>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta reprehenderit voluptatibus nisi unde, enim similique, dolorum suscipit id labore cum rem expedita. Cupiditate officiis atque nam, non vero numquam doloremque!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde mollitia expedita temporibus quas culpa explicabo quisquam hic magnam ratione laboriosam eos, impedit veniam error? Voluptas numquam soluta aut labore a?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore sit praesentium deleniti id amet obcaecati facilis ratione, excepturi ullam, animi vel voluptatibus, nobis debitis tempore sequi? Voluptatum molestias temporibus eum.</p>
   </div>
-<!-- </ng-template> -->
 
-<!-- <ng-template #myTempVar>
-<p>There are no terms and conditions</p>
-</ng-template> -->
-<p *appIf="101 > 11">this is a demo paragraph</p>
+  <div *ngSwitchCase="'privacy'">
+    <h2>Privacy Policy</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In tempore, voluptatibus aperiam unde minima aliquam, voluptatem provident, quia tenetur cum placeat quasi debitis adipisci perspiciatis nobis natus nisi nemo doloremque.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus enim incidunt blanditiis voluptatibus animi eaque distinctio sed, saepe labore officia dolorum ex magnam qui. Consequuntur tempora quasi sint in itaque?</p>
+  </div>
   
+  <div *ngSwitchCase="'user'">
+    <h2>User Agreement</h2>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro, eveniet mollitia cupiditate quo ab veniam repellendus? Consequatur incidunt reiciendis iure, eaque sapiente neque minus nihil fuga ad, architecto aliquid dolor?</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi, nostrum fugit velit vel accusantium tempore saepe repudiandae! Molestias laborum id dolore repellat, ea libero natus nihil vel, laudantium excepturi amet?</p>
+  </div>
+</div>
 </div>

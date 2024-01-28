@@ -1,10 +1,4 @@
-<div class="container">
-  <input type="text" #inputEl (focus)="0">
-  <button (click)="onSubmit(inputEl)">Submit</button>
-  <app-demo [message]="inputValue" *ngIf="!toDestroy">
-    <p #parentPara>User has entered the following text: {{inputValue}}</p>
-  </app-demo>
-  <br><br>
-  <button (click)="DestroyComponent()">Show/hide</button>
-    
+<h2>Custom class and style directive</h2>
+<div [ngClass]="{apphighlight:true,'app-Container':true}">
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum quidem laudantium est, ducimus eius cumque laboriosam. Esse suscipit vero, incidunt consequatur a amet consectetur labore temporibus eum deserunt, eos ratione.</p>
 </div>

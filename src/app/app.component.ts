@@ -13,7 +13,7 @@ import { ClassDirective } from './CustomDirectives/class.directive';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  active:boolean=true;
+  display:boolean=false;
   
 
   constructor(){

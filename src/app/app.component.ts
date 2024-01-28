@@ -1,14 +1,15 @@
 import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { ClassDirective } from './CustomDirectives/class.directive';
+
+import { IfDirective } from './CustomDirectives/if.directive';
 
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet,ClassDirective],
+  imports: [CommonModule, RouterOutlet,IfDirective],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

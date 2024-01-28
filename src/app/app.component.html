@@ -6,8 +6,8 @@
   <div class="notice-info">
     <p>Read terms of services and privacy policy</p>
   </div>
-<ng-template [ngIf]="display" [ngIfElse]="myTempVar">
-  <div class="notice-body">
+<!-- <ng-template [ngIf]="display" [ngIfElse]="myTempVar"> -->
+  <div class="notice-body" *appIf="display">
     <h1>Terms of services and privacy policy</h1>
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti soluta earum odit perspiciatis maxime suscipit aspernatur ratione illo magni! Magnam, aspernatur? Placeat ipsam fuga, necessitatibus perferendis tempore nobis porro quod.</p>
     <h2>Terms of services</h2>
@@ -15,10 +15,11 @@
     <h2>Privacy Policy</h2>
     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta reprehenderit voluptatibus nisi unde, enim similique, dolorum suscipit id labore cum rem expedita. Cupiditate officiis atque nam, non vero numquam doloremque!</p>
   </div>
-</ng-template>
+<!-- </ng-template> -->
 
-<ng-template #myTempVar>
+<!-- <ng-template #myTempVar>
 <p>There are no terms and conditions</p>
-</ng-template>
+</ng-template> -->
+<p *appIf="101 > 11">this is a demo paragraph</p>
   
 </div>

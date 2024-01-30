@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './home/home.component';
 import { CommonModule } from '@angular/common';
+import { SubscribeService } from '../Services/subscribe.service';
 
 @Component({
   selector: 'app-header',
@@ -12,13 +13,19 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent {
 selectedTab:string ='home';
+  constructor(private subscribeService:SubscribeService){
 
-AdminClicked(){
+  }
+    AdminClicked(){
+    this.selectedTab='admin';
+    }
 
-}
+    HomeClicked(){
+    this.selectedTab='home';
+    }
 
-HomeClicked(){
-
-}
+    onSubscribe(){
+      this.subscribeService.Subscribe('Yearly');
+    }
 
 }

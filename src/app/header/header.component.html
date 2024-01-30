@@ -1,1 +1,13 @@
-<p>header works!</p>
+<div class="header-container">
+    <div class="header-logo">MYSTIE</div>
+    <div class="header-nav">
+        <a href="#" (click)="HomeClicked()">Home</a>
+        <a href="#" (click)="AdminClicked()">Admin</a>
+        <button class="header-button">Subscribe</button>
+    </div>
+</div>
+
+<div [ngSwitch]="selectedTab">
+    <app-home *ngSwitchCase="'home'"></app-home>
+    <app-admin *ngSwitchCase="'admin'"></app-admin>
+</div>

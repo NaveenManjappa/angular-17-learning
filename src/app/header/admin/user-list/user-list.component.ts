@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { UserService } from '../../../Services/user.service';
 import { CommonModule } from '@angular/common';
 import {USER_TOKEN} from '../../../app.config';
+import { User } from '../../../Models/User';
 
 @Component({
   selector: 'app-user-list',
@@ -16,4 +17,8 @@ export class UserListComponent {
 
   }
   userList =this.userService.GetAllUsers();
+
+  ShowUserDetails(user:User){
+    this.userService.OnShowUserDetails(user);
+  }
 }

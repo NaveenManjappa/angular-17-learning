@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserService } from '../../Services/user.service';
 import { FormsModule } from '@angular/forms';
+import { USER_TOKEN } from '../../app.config';
 
 @Component({
   selector: 'app-admin',
@@ -13,7 +14,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class AdminComponent {
 
-  constructor(private userService:UserService){
+  constructor(@Inject(USER_TOKEN) private userService:UserService){
 
   }
 

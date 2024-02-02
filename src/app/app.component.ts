@@ -1,7 +1,7 @@
-import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { Observable, from, of } from 'rxjs';
+import { Observable, from, fromEvent, of } from 'rxjs';
 
 
 
@@ -13,12 +13,15 @@ import { Observable, from, of } from 'rxjs';
   styleUrl: './app.component.css'
   
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
 title='angular-observables';
 data:any[]=[];
 
   array1 = [1,2,3,4,5];
   array2 = ['A','X','C','V'];
+
+  @ViewChild('createBtn') createBtn:ElementRef;
+  createBtnObservable;
 
 //1.Creata an Observable
   // myObservable=new Observable((observer)=>{
@@ -77,5 +80,27 @@ data:any[]=[];
           alert('Observable completed');
         }
       });
+  }
+
+  ngAfterViewInit(){
+    this.buttonClicked();
+  }
+
+  buttonClicked(){
+    let count=0;
+    this.createBtnObservable= fromEvent(this.createBtn.nativeElement,'click').subscribe({
+      next:(data)=>
+          {
+            console.log(data);
+            this.showItem(++count);
+          }
+    });
+  }
+
+  showItem(val){
+    let div=document.createElement('div');
+    div.innerText='Item'+val;
+    div.className='data-list';
+    document.getElementById('contDiv').appendChild(div);
   }
 }

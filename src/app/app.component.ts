@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { Observable, from, fromEvent, of } from 'rxjs';
+import { Observable, filter, from, fromEvent, map, of } from 'rxjs';
 
 
 
@@ -13,7 +13,7 @@ import { Observable, from, fromEvent, of } from 'rxjs';
   styleUrl: './app.component.css'
   
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent  {
 title='angular-observables';
 data:any[]=[];
 
@@ -49,7 +49,20 @@ data:any[]=[];
     resolve([10,20,30,40]);
   })
   //from operator
-  myObservable=from(this.promiseData);
+  //myObservable=from(this.promiseData);
+  myObservable = from([2,4,6,8,10]).pipe(map((val)=>{
+    return val*5;
+  }),filter((val,i)=>{
+    return val % 4 ===0;
+  }));
+
+  // transformedObservable=this.myObservable.pipe(map((val)=>{
+  //   return val*5;
+  // }));
+
+  // filteredObs=this.transformedObservable.pipe(filter((val,i)=>{
+  //   return val % 4 ===0;
+  // }));
   
  
   GetAsyncData(){
@@ -82,25 +95,25 @@ data:any[]=[];
       });
   }
 
-  ngAfterViewInit(){
-    this.buttonClicked();
-  }
+  // ngAfterViewInit(){
+  //   this.buttonClicked();
+  // }
 
-  buttonClicked(){
-    let count=0;
-    this.createBtnObservable= fromEvent(this.createBtn.nativeElement,'click').subscribe({
-      next:(data)=>
-          {
-            console.log(data);
-            this.showItem(++count);
-          }
-    });
-  }
+  // buttonClicked(){
+  //   let count=0;
+  //   this.createBtnObservable= fromEvent(this.createBtn.nativeElement,'click').subscribe({
+  //     next:(data)=>
+  //         {
+  //           console.log(data);
+  //           this.showItem(++count);
+  //         }
+  //   });
+  // }
 
-  showItem(val){
-    let div=document.createElement('div');
-    div.innerText='Item'+val;
-    div.className='data-list';
-    document.getElementById('contDiv').appendChild(div);
-  }
+  // showItem(val){
+  //   let div=document.createElement('div');
+  //   div.innerText='Item'+val;
+  //   div.className='data-list';
+  //   document.getElementById('contDiv').appendChild(div);
+  // }
 }

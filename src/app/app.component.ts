@@ -5,13 +5,14 @@ import { Observable, filter, from, fromEvent, map, of } from 'rxjs';
 import { NewTaskComponent } from './new-task/new-task.component';
 import { ShowTaskComponent } from './show-task/show-task.component';
 import { SubjectComponent } from './subject/subject.component';
+import { UnsubscribeComponent } from './unsubscribe/unsubscribe.component';
 
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet,NewTaskComponent,ShowTaskComponent,SubjectComponent],
+  imports: [CommonModule, RouterOutlet,NewTaskComponent,ShowTaskComponent,SubjectComponent,UnsubscribeComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
   

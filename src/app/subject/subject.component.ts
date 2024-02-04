@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject, Subject, delay } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
 
 @Component({
@@ -32,12 +32,12 @@ export class SubjectComponent implements OnInit {
     //subject.next(2024);
 
     
-    const bSubj=new BehaviorSubject<number>(2020);
+    // const bSubj=new BehaviorSubject<number>(2020);
   
-    bSubj.subscribe((data)=>console.log('Subscriber 1:'+data));
-    bSubj.next(2024);
+    // bSubj.subscribe((data)=>console.log('Subscriber 1:'+data));
+    // bSubj.next(2024);
 
-    bSubj.subscribe((data)=>console.log('Subscriber 2:'+data));
+    // bSubj.subscribe((data)=>console.log('Subscriber 2:'+data));
     
 
     
@@ -72,7 +72,22 @@ export class SubjectComponent implements OnInit {
 
     // data.subscribe(sub);
 
+    const rSub=new ReplaySubject(1,2000);
+    rSub.next(50);
+    rSub.next(70);
+    rSub.subscribe(data => console.log('Subscriber 1: '+data));
 
+    rSub.next(100);
+
+    //delay(2000);
+
+    //Subscriber 1
+    rSub.subscribe(data => console.log('Subscriber 2: '+data));
+
+    rSub.next(200);
+    rSub.next(300);
+
+    rSub.subscribe(data => console.log('Subscriber 3: '+data));
 
   }
 }

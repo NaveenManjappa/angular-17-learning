@@ -4,13 +4,14 @@ import { RouterOutlet } from '@angular/router';
 import { Observable, filter, from, fromEvent, map, of } from 'rxjs';
 import { NewTaskComponent } from './new-task/new-task.component';
 import { ShowTaskComponent } from './show-task/show-task.component';
+import { SubjectComponent } from './subject/subject.component';
 
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet,NewTaskComponent,ShowTaskComponent],
+  imports: [CommonModule, RouterOutlet,NewTaskComponent,ShowTaskComponent,SubjectComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
   

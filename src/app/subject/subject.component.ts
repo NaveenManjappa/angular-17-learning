@@ -103,5 +103,28 @@ export class SubjectComponent implements OnInit {
       asyncSub.subscribe(data=>console.log('Subscriber 3: '+data));
       asyncSub.next(400);
 
+      const promise=new Promise((resolve,reject)=>{
+        console.log('Promise called');
+        resolve(100);
+        resolve(200);
+        resolve(300);
+      });
+
+      promise.then((data)=>console.log(data));
+
+      const obs=new Observable((observer)=>{
+        console.log('Observable called');
+        observer.next(100);
+        observer.next(200);
+        observer.next(300);
+      });
+
+      obs.subscribe({
+        next: (data)=>{
+          console.log(data);
+        }
+      });
+
+
   }
 }

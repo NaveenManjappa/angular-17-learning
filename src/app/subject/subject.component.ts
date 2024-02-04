@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable, ReplaySubject, Subject, delay } from 'rxjs';
+import { AsyncSubject, BehaviorSubject, Observable, ReplaySubject, Subject, delay } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
 
 @Component({
@@ -72,22 +72,36 @@ export class SubjectComponent implements OnInit {
 
     // data.subscribe(sub);
 
-    const rSub=new ReplaySubject(1,2000);
-    rSub.next(50);
-    rSub.next(70);
-    rSub.subscribe(data => console.log('Subscriber 1: '+data));
+    // const rSub=new ReplaySubject(1,2000);
+    // rSub.next(50);
+    // rSub.next(70);
+    // rSub.subscribe(data => console.log('Subscriber 1: '+data));
 
-    rSub.next(100);
+    // rSub.next(100);
 
-    //delay(2000);
+    // //delay(2000);
 
-    //Subscriber 1
-    rSub.subscribe(data => console.log('Subscriber 2: '+data));
+    // //Subscriber 1
+    // rSub.subscribe(data => console.log('Subscriber 2: '+data));
 
-    rSub.next(200);
-    rSub.next(300);
+    // rSub.next(200);
+    // rSub.next(300);
 
-    rSub.subscribe(data => console.log('Subscriber 3: '+data));
+    // rSub.subscribe(data => console.log('Subscriber 3: '+data));
+
+      //Async subject
+      const asyncSub=new AsyncSubject();
+      asyncSub.next(100);
+      asyncSub.next(200);
+      asyncSub.subscribe(data=>console.log('Subscriber 1: '+data));
+      asyncSub.next(300);
+      asyncSub.subscribe(data=>console.log('Subscriber 2: '+data));
+
+      
+
+      asyncSub.complete();
+      asyncSub.subscribe(data=>console.log('Subscriber 3: '+data));
+      asyncSub.next(400);
 
   }
 }

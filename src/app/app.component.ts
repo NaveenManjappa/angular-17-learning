@@ -2,13 +2,15 @@ import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildre
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { Observable, filter, from, fromEvent, map, of } from 'rxjs';
+import { NewTaskComponent } from './new-task/new-task.component';
+import { ShowTaskComponent } from './show-task/show-task.component';
 
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet,NewTaskComponent,ShowTaskComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
   
